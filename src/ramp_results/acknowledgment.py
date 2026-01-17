@@ -3,7 +3,7 @@ Acknowledgment object for RAMP messages.
 """
 
 import time
-from ramp_results.codes import ResultCode
+from ramp_results.codes import ResultCode, VERSION
 
 
 class Acknowledgment:
@@ -19,7 +19,7 @@ class Acknowledgment:
         result: ResultCode,
         msg_type: str,
         original_ts: int,
-        version: str = "1.0.0",
+        version: str = VERSION,
     ):
         """
         Initialize an acknowledgment.
@@ -33,7 +33,7 @@ class Acknowledgment:
         original_ts : int
             Timestamp of the original message (epoch ms).
         version : str
-            Result table version.
+            Result table version. Defaults to the current active schema version.
         """
         self.result = result
         self.msg_type = msg_type
